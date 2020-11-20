@@ -1,15 +1,10 @@
-import os
-import mysql.connector
+from db.models import session
+from db.models import Station
 
 
-db_user = os.environ.get("DB_MYSQL_USER")
-db_pass = os.environ.get("DB_MYSQL_PASS")
-
-mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
-    passwd=db_pass
-)
+results = session.query(Station).all()
 
 
-print(mydb)
+list = list(map(lambda elem: elem.Title, results))
+
+print(list)
