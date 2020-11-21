@@ -1,6 +1,6 @@
 from db.models import session
 from db.models import Organisation
-from interface.login_interface import Ui_MainWindow,QtWidgets
+from interface.index_interface import Ui_MainWindow, QtWidgets
 
 # new_ex = Organisation(Title="NEW")
 # session.add(new_ex)
@@ -18,3 +18,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
