@@ -51,9 +51,13 @@ class Ui_MainWindow(object):
 
         self.log_as_ticketsman = QtWidgets.QAction(MainWindow)
         self.log_as_ticketsman.setObjectName("log_as_ticketsman")
+        self.log_as_ticketsman.triggered.connect(self.log_as_tick)
+        self.log_as_ticketsman.triggered.connect(MainWindow.close)
 
         self.log_as_driver = QtWidgets.QAction(MainWindow)
         self.log_as_driver.setObjectName("log_as_driver")
+        self.log_as_driver.triggered.connect(self.log_as_dr)
+        self.log_as_driver.triggered.connect(MainWindow.close)
 
         self.menuLog_in.addSeparator()
         self.menuLog_in.addAction(self.log_as_admin)
@@ -63,7 +67,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -79,15 +82,20 @@ class Ui_MainWindow(object):
         self.ui = Ui_LoginWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-
-
-
-
+        self.ui.log_type = "admin"
 
     def log_as_tick(self):
-        pass
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LoginWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.ui.log_type = "ticketsman"
 
     def log_as_dr(self):
-        pass
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LoginWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.ui.log_type = "driver"
 
 

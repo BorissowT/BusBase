@@ -47,6 +47,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">z-index: 3;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -84,6 +87,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"> setZValue:1;</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="login_button">
     <property name="geometry">
@@ -103,6 +109,34 @@
      <string>LOGIN</string>
     </property>
    </widget>
+   <widget class="QLabel" name="policeman">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>351</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>logos/policeman.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>policeman</zorder>
+   <zorder>first_name_label</zorder>
+   <zorder>First_name_input</zorder>
+   <zorder>Last_name_label</zorder>
+   <zorder>last_name_input</zorder>
+   <zorder>login_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
