@@ -78,24 +78,19 @@ class Ui_MainWindow(object):
         self.log_as_driver.setText(_translate("MainWindow", "Log as Driver"))
 
     def log_as_ad(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_LoginWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        self.initialize_page()
         self.ui.log_type = "admin"
 
     def log_as_tick(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_LoginWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        self.initialize_page()
         self.ui.log_type = "ticketsman"
 
     def log_as_dr(self):
+        self.initialize_page()
+        self.ui.log_type = "driver"
+
+    def initialize_page(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LoginWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-        self.ui.log_type = "driver"
-
-
