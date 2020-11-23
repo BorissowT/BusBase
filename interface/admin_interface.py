@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUi
 
 from db.models import session
@@ -17,9 +17,10 @@ class AdminUi(QMainWindow, BaseAdmin):
         self.label_admin_name.setText(self.get_user_name())
         self.label_current_income.setText(self.get_organisation_income())
         self.button_vehicle_interface.clicked.connect(self.open_vehicle)
+        self.button_personal_interface.clicked.connect(self.open_routes)
 
     def get_organisation_title(self):
-        organisation_title = session.query(Organisation).first().Title
+        organisation_title = self.organisation.Title
         return organisation_title
 
     def get_organisation_income(self):
@@ -34,5 +35,11 @@ class AdminUi(QMainWindow, BaseAdmin):
     def open_vehicle(self):
         from interface.vehicle_interface import VehicleUi
         vehicle_page = VehicleUi()
+        self.widget.addWidget(vehicle_page)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def open_routes(self):
+        from interface.routes_interface import RouteUi
+        vehicle_page = RouteUi()
         self.widget.addWidget(vehicle_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)

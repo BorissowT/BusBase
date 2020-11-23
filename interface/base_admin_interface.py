@@ -1,9 +1,11 @@
 from PyQt5.QtWidgets import QMessageBox
-
+from db.models import session
+from db.models import Organisation
 
 class BaseAdmin:
     widget = None
     user = None
+    organisation = session.query(Organisation).first()
 
     def back_to_menu(self):
         from interface.admin_interface import AdminUi

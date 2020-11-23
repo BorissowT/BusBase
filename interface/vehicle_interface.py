@@ -14,7 +14,6 @@ class VehicleUi(QMainWindow, BaseAdmin):
         loadUi("interface/vehicle_ui.ui", self)
         self.label.setPixmap(QtGui.QPixmap("interface/logos/bus1.png"))
         self.actionlogout.triggered.connect(self.logout)
-        self.actionlogout.triggered.connect(self.logout)
         self.action_back_to_menu.triggered.connect(self.back_to_menu)
         self.table_bus.setColumnWidth(0, 200)
         self.table_bus.setColumnWidth(1, 200)
@@ -33,6 +32,7 @@ class VehicleUi(QMainWindow, BaseAdmin):
         trains = session.query(Train).all()
         row = 0
         self.table_bus.setRowCount(len(buses))
+
         self.table_tram.setRowCount(len(trains))
         for bus in buses:
             self.table_bus.setItem(row, 0, QtWidgets.QTableWidgetItem(bus.Brand))
@@ -47,6 +47,7 @@ class VehicleUi(QMainWindow, BaseAdmin):
             self.table_tram.setItem(row, 2, QtWidgets.QTableWidgetItem(str(train.ElectricityPerHour)))
             self.table_tram.setItem(row, 3, QtWidgets.QTableWidgetItem(str(train.Mileage)))
             row = row+1
+
 
     def get_location(self):
         location = session.query(VehicleBase).first().Location

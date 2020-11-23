@@ -108,6 +108,9 @@
     <property name="text">
      <string>LOGIN</string>
     </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
    </widget>
    <widget class="QLabel" name="policeman">
     <property name="geometry">
