@@ -1,3 +1,6 @@
+from PyQt5.QtWidgets import QMessageBox
+
+
 class BaseAdmin:
     widget = None
     user = None
@@ -14,3 +17,8 @@ class BaseAdmin:
         index_page = IndexUi()
         self.widget.addWidget(index_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def show_message(self,text):
+        msgBox = QMessageBox()
+        msgBox.setText(text)
+        msgBox.exec_()

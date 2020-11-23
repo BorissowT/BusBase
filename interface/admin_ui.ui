@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>789</width>
+    <height>540</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -17,19 +25,6 @@
     </property>
     <property name="text">
      <string>Open personal managment</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_routes_interface">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>220</y>
-      <width>241</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open routes managment</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -126,9 +121,9 @@
    <widget class="QPushButton" name="button_income_recount">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>80</x>
       <y>410</y>
-      <width>241</width>
+      <width>571</width>
       <height>41</height>
      </rect>
     </property>
@@ -214,9 +209,9 @@
    <widget class="QPushButton" name="button_reports_interface">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>410</y>
-      <width>211</width>
+      <x>410</x>
+      <y>220</y>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
@@ -230,7 +225,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>777</width>
+     <width>789</width>
      <height>21</height>
     </rect>
    </property>

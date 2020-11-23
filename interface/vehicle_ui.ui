@@ -11,7 +11,7 @@
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>301</width>
+      <width>201</width>
       <height>91</height>
      </rect>
     </property>
@@ -21,16 +21,16 @@
      </font>
     </property>
     <property name="text">
-     <string>Vehicle Department</string>
+     <string>Vehicle Department:</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="table_bus">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>170</y>
+      <y>150</y>
       <width>691</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <column>
@@ -58,9 +58,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>300</y>
+      <y>290</y>
       <width>691</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <column>
@@ -88,7 +88,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>140</y>
+      <y>120</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -106,7 +106,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>270</y>
+      <y>260</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -124,7 +124,7 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>120</y>
+      <y>100</y>
       <width>811</width>
       <height>16</height>
      </rect>
@@ -298,10 +298,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>610</x>
       <y>0</y>
-      <width>171</width>
-      <height>121</height>
+      <width>141</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">
@@ -312,6 +312,24 @@
     </property>
     <property name="scaledContents">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_location">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>40</y>
+      <width>251</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>LOCATION</string>
     </property>
    </widget>
   </widget>

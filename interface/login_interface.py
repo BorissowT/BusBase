@@ -50,7 +50,7 @@ class LoginUi(QMainWindow, BaseAdmin):
         admin = session.query(Administrator).filter(Administrator.FirstName == first_name,
                                                     Administrator.LastName == last_name).first()
         if not admin:
-            show_message("Wrong firstname or lastname!")
+            self.show_message("Wrong firstname or lastname!")
         else:
             from interface.admin_interface import AdminUi
             BaseAdmin.user = admin
@@ -65,7 +65,7 @@ class LoginUi(QMainWindow, BaseAdmin):
         ticketsman = session.query(Ticketsman).filter(Ticketsman.FirstName == first_name,
                                                       Ticketsman.LastName == last_name).first()
         if not ticketsman:
-            show_message("Wrong firstname or lastname!")
+            self.show_message("Wrong firstname or lastname!")
         else:
             pass
 
@@ -75,14 +75,11 @@ class LoginUi(QMainWindow, BaseAdmin):
         driver = session.query(Driver).filter(Driver.FirstName == first_name,
                                               Driver.LastName == last_name).first()
         if not driver:
-            show_message("Wrong firstname or lastname!")
+            self.show_message("Wrong firstname or lastname!")
         else:
             pass
 
 
 
 
-def show_message(text):
-    msgBox = QMessageBox()
-    msgBox.setText(text)
-    msgBox.exec_()
+
