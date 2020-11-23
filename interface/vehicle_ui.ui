@@ -326,7 +326,7 @@
    </property>
    <widget class="QMenu" name="menuLogout">
     <property name="title">
-     <string>Logout</string>
+     <string>Menu</string>
     </property>
     <addaction name="action_back_to_menu"/>
     <addaction name="actionlogout"/>

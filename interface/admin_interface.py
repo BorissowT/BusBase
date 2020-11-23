@@ -30,11 +30,6 @@ class AdminUi(QMainWindow, BaseAdmin):
         fname = self.user.FirstName
         return fname
 
-    def logout(self):
-        from interface.index_interface import IndexUi
-        index_page = IndexUi()
-        self.widget.addWidget(index_page)
-        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
     def open_vehicle(self):
         from interface.vehicle_interface import VehicleUi

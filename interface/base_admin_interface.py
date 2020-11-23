@@ -1,10 +1,10 @@
-class BaseAdmin():
+class BaseAdmin:
     widget = None
     user = None
 
     def back_to_menu(self):
         from interface.admin_interface import AdminUi
-        admin_page = AdminUi(self.user)
+        admin_page = AdminUi()
         admin_page.widget = self.widget
         self.widget.addWidget(admin_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
