@@ -5,9 +5,10 @@ from PyQt5.uic.properties import QtGui
 from db.models import Administrator, Ticketsman, Driver
 from db.models import session
 
+from interface.base_admin_interface import BaseAdmin
 
-class LoginUi(QMainWindow):
-    widget = None
+
+class LoginUi(QMainWindow, BaseAdmin):
     log_type = None
 
     def __init__(self):
@@ -30,7 +31,6 @@ class LoginUi(QMainWindow):
     def initialize_page(self, type):
         login_page = LoginUi()
         login_page.log_type = type
-        login_page.widget = self.widget
         self.widget.addWidget(login_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
@@ -54,7 +54,6 @@ class LoginUi(QMainWindow):
         else:
             from interface.admin_interface import AdminUi
             admin_page = AdminUi(admin)
-            admin_page.widget = self.widget
             self.widget.addWidget(admin_page)
             self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 

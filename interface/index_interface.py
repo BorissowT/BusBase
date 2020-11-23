@@ -5,12 +5,14 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.uic import loadUi
 
+from interface.base_admin_interface import BaseAdmin
 
 def start_interface():
     app = QApplication(sys.argv)
     mainwindow = IndexUi()
     global widget
     widget = QtWidgets.QStackedWidget()
+    BaseAdmin.widget = widget
     widget.addWidget(mainwindow)
     widget.setFixedWidth(777)
     widget.setFixedHeight(569)
@@ -41,6 +43,7 @@ class IndexUi(QMainWindow):
         login_page.widget = widget
         widget.addWidget(login_page)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
 
 from interface.login_interface import LoginUi
 
