@@ -8,12 +8,10 @@ from interface.base_admin_interface import BaseAdmin
 
 
 class AdminUi(QMainWindow, BaseAdmin):
-    user = None
 
-    def __init__(self, user):
+    def __init__(self):
         super(AdminUi, self).__init__()
         loadUi("interface/admin_ui.ui", self)
-        self.user = user
         self.actionlogout.triggered.connect(self.logout)
         self.label_organisation_name.setText(self.get_organisation_title())
         self.label_admin_name.setText(self.get_user_name())
@@ -40,6 +38,6 @@ class AdminUi(QMainWindow, BaseAdmin):
 
     def open_vehicle(self):
         from interface.vehicle_interface import VehicleUi
-        vehicle_page = VehicleUi(self.user)
+        vehicle_page = VehicleUi()
         self.widget.addWidget(vehicle_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)

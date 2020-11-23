@@ -53,7 +53,8 @@ class LoginUi(QMainWindow, BaseAdmin):
             show_message("Wrong firstname or lastname!")
         else:
             from interface.admin_interface import AdminUi
-            admin_page = AdminUi(admin)
+            BaseAdmin.user = admin
+            admin_page = AdminUi()
             self.widget.addWidget(admin_page)
             self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 

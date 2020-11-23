@@ -9,10 +9,9 @@ from interface.base_admin_interface import BaseAdmin
 
 class VehicleUi(QMainWindow, BaseAdmin):
 
-    def __init__(self, user):
+    def __init__(self):
         super(VehicleUi, self).__init__()
         loadUi("interface/vehicle_ui.ui", self)
-        self.user = user
         self.label.setPixmap(QtGui.QPixmap("interface/logos/bus1.png"))
         self.actionlogout.triggered.connect(self.logout)
         self.actionlogout.triggered.connect(self.logout)
