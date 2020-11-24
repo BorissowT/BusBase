@@ -97,13 +97,14 @@ class ReportsUi(QMainWindow, BaseAdmin):
         date = self.data_search.date().toPyDate()
         day_reports = session.query(DayReport).filter(DayReport.Date == date).all()
         self.table_reports.setRowCount(len(day_reports)*2)
+        self.clear_all_rows(len(day_reports)*2)
         row = 0
         for report in day_reports:
             tick_report = session.query(TicketsmanReport).filter(TicketsmanReport.id == report.TicketsmanReport_id)\
                 .first()
             driver_report = session.query(DriverReport).filter(DriverReport.id == report.DriverReport_id).first()
             if tick_report:
-                worker = session.query(Ticketsman).filter(Ticketsman.id == report.TicketsmanReport_id).first().LastName
+                worker = session.query(Ticketsman).filter(Ticketsman.id == tick_report.Ticketsman_id).first().LastName
                 vehicle = "-"
                 route = "-"
                 mileage = "-"
@@ -171,6 +172,17 @@ class ReportsUi(QMainWindow, BaseAdmin):
                 money = "-"
                 self.fill_row(date, worker, vehicle, route, mileage, problems, worktime, money, row)
                 row = row + 1
+
+    def clear_all_rows(self, count):
+        for row in range(count):
+            self.table_reports.setItem(row, 0, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 1, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 2, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 3, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 4, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 5, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 6, QtWidgets.QTableWidgetItem(""))
+            self.table_reports.setItem(row, 7, QtWidgets.QTableWidgetItem(""))
 
     def fill_row(self, date, worker, vehicle, route, mileage, problems, worktime, money, row):
         self.table_reports.setItem(row, 0, QtWidgets.QTableWidgetItem(str(date)))

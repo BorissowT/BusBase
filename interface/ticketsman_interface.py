@@ -47,12 +47,10 @@ class TicketsmanUi(QMainWindow, BaseUser):
     def commit_and_get_report_back(self, money, hours):
         new_ticketsman_report = TicketsmanReport(Ticketsman_id=self.user.id, Money=money, WorkTime=hours)
         session.add(new_ticketsman_report)
+        ##to get id of added report
+        session.flush()
         session.commit()
-        return session.query(TicketsmanReport).filter(
-            TicketsmanReport.Ticketsman_id == self.user.id,
-            TicketsmanReport.Money == money,
-            TicketsmanReport.WorkTime == hours
-        ).first()
+        return new_ticketsman_report
 
     def check_if_dayreport_has_ticketsmans_report(self,date):
         day_report = session.query(DayReport).filter(DayReport.Date == date).first()
