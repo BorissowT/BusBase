@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.uic import loadUi
 
 from interface.base_admin_interface import BaseAdmin
+from interface.base_user_interface import BaseUser
+
 
 def start_interface():
     app = QApplication(sys.argv)
@@ -13,6 +15,7 @@ def start_interface():
     global widget
     widget = QtWidgets.QStackedWidget()
     BaseAdmin.widget = widget
+    BaseUser.widget = widget
     widget.addWidget(mainwindow)
     widget.setFixedWidth(777)
     widget.setFixedHeight(569)

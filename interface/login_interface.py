@@ -6,6 +6,7 @@ from db.models import Administrator, Ticketsman, Driver
 from db.models import session
 
 from interface.base_admin_interface import BaseAdmin
+from interface.base_user_interface import BaseUser
 
 
 class LoginUi(QMainWindow, BaseAdmin):
@@ -66,7 +67,11 @@ class LoginUi(QMainWindow, BaseAdmin):
         if not ticketsman:
             self.show_message("Wrong firstname or lastname!")
         else:
-            pass
+            from interface.ticketsman_interface import TicketsmanUi
+            BaseUser.user = ticketsman
+            ticketsman_page = TicketsmanUi()
+            self.widget.addWidget(ticketsman_page)
+            self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
     def driver_login(self):
         first_name = self.First_name_input.text()
