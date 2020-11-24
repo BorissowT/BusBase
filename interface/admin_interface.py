@@ -17,7 +17,8 @@ class AdminUi(QMainWindow, BaseAdmin):
         self.label_admin_name.setText(self.get_user_name())
         self.label_current_income.setText(self.get_organisation_income())
         self.button_vehicle_interface.clicked.connect(self.open_vehicle)
-        self.button_personal_interface.clicked.connect(self.open_routes)
+        self.button_routes_interface.clicked.connect(self.open_routes)
+        self.button_personal_interface.clicked.connect(self.open_pm)
 
     def get_organisation_title(self):
         organisation_title = self.organisation.Title
@@ -42,4 +43,10 @@ class AdminUi(QMainWindow, BaseAdmin):
         from interface.routes_interface import RouteUi
         vehicle_page = RouteUi()
         self.widget.addWidget(vehicle_page)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def open_pm(self):
+        from interface.pm_interface import PersonalManagementUi
+        pm_page = PersonalManagementUi()
+        self.widget.addWidget(pm_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)

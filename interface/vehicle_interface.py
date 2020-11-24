@@ -32,7 +32,6 @@ class VehicleUi(QMainWindow, BaseAdmin):
         trains = session.query(Train).all()
         row = 0
         self.table_bus.setRowCount(len(buses))
-
         self.table_tram.setRowCount(len(trains))
         for bus in buses:
             self.table_bus.setItem(row, 0, QtWidgets.QTableWidgetItem(bus.Brand))

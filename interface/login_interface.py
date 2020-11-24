@@ -58,7 +58,6 @@ class LoginUi(QMainWindow, BaseAdmin):
             self.widget.addWidget(admin_page)
             self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
-
     def ticketsman_login(self):
         first_name = self.First_name_input.text()
         last_name = self.last_name_input.text()
