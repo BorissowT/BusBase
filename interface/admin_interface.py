@@ -19,6 +19,7 @@ class AdminUi(QMainWindow, BaseAdmin):
         self.button_vehicle_interface.clicked.connect(self.open_vehicle)
         self.button_routes_interface.clicked.connect(self.open_routes)
         self.button_personal_interface.clicked.connect(self.open_pm)
+        self.button_reports_interface.clicked.connect(self.open_reports)
 
     def get_organisation_title(self):
         organisation_title = self.organisation.Title
@@ -31,7 +32,6 @@ class AdminUi(QMainWindow, BaseAdmin):
     def get_user_name(self):
         fname = self.user.FirstName
         return fname
-
 
     def open_vehicle(self):
         from interface.vehicle_interface import VehicleUi
@@ -49,4 +49,10 @@ class AdminUi(QMainWindow, BaseAdmin):
         from interface.pm_interface import PersonalManagementUi
         pm_page = PersonalManagementUi()
         self.widget.addWidget(pm_page)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def open_reports(self):
+        from interface.reports_interface import ReportsUi
+        reports_page = ReportsUi()
+        self.widget.addWidget(reports_page)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)

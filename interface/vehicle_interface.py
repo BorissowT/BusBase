@@ -15,6 +15,7 @@ class VehicleUi(QMainWindow, BaseAdmin):
         self.label.setPixmap(QtGui.QPixmap("interface/logos/bus1.png"))
         self.actionlogout.triggered.connect(self.logout)
         self.action_back_to_menu.triggered.connect(self.back_to_menu)
+
         self.table_bus.setColumnWidth(0, 200)
         self.table_bus.setColumnWidth(1, 200)
         self.table_bus.setColumnWidth(2, 200)
