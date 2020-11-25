@@ -47,7 +47,7 @@ class ReportsUi(QMainWindow, BaseAdmin):
             if tram:
                 vehicle = session.query(Train).filter(Train.id == tram).first().Brand
             if bus:
-                vehicle = session.query(Bus).filter(Bus.id == tram).first().Brand
+                vehicle = session.query(Bus).filter(Bus.id == bus).first().Brand
             route = session.query(Route).filter(Route.id == driver.Route_id).first().Title
             mileage = driver.Mileage
             problems = driver.Problems
@@ -84,7 +84,7 @@ class ReportsUi(QMainWindow, BaseAdmin):
             if tram:
                 vehicle = session.query(Train).filter(Train.id == tram).first().Brand
             if bus:
-                vehicle = session.query(Bus).filter(Bus.id == tram).first().Brand
+                vehicle = session.query(Bus).filter(Bus.id == bus).first().Brand
             route = session.query(Route).filter(Route.id == driver.Route_id).first().Title
             mileage = driver.Mileage
             problems = driver.Problems
@@ -114,13 +114,13 @@ class ReportsUi(QMainWindow, BaseAdmin):
                 self.fill_row(date, worker, vehicle, route, mileage, problems, worktime, money, row)
                 row = row + 1
             if driver_report:
-                worker = session.query(Driver).filter(Driver.id == report.DriverReport_id).first().LastName
+                worker = session.query(Driver).filter(Driver.id == driver_report.Driver_id).first().LastName
                 tram = driver_report.Train_id
                 bus = driver_report.Bus_id
                 if tram:
                     vehicle = session.query(Train).filter(Train.id == tram).first().Brand
                 if bus:
-                    vehicle = session.query(Bus).filter(Bus.id == tram).first().Brand
+                    vehicle = session.query(Bus).filter(Bus.id == bus).first().Brand
                 route = session.query(Route).filter(Route.id == driver_report.Route_id).first().Title
                 mileage = driver_report.Mileage
                 problems = driver_report.Problems
@@ -137,7 +137,6 @@ class ReportsUi(QMainWindow, BaseAdmin):
         driver = session.query(Driver).filter(Driver.FirstName == firstname,
                                               Driver.LastName == lastname).first()
         if ticketsman:
-            print("inside ticketsman")
             reports = session.query(TicketsmanReport).filter(TicketsmanReport.Ticketsman_id == ticketsman.id).all()
             self.table_reports.setRowCount(len(reports))
             row = 0
@@ -164,7 +163,7 @@ class ReportsUi(QMainWindow, BaseAdmin):
                 if tram:
                     vehicle = session.query(Train).filter(Train.id == tram).first().Brand
                 if bus:
-                    vehicle = session.query(Bus).filter(Bus.id == tram).first().Brand
+                    vehicle = session.query(Bus).filter(Bus.id == bus).first().Brand
                 route = session.query(Route).filter(Route.id == report.Route_id).first().Title
                 mileage = report.Mileage
                 problems = report.Problems
