@@ -3,7 +3,6 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.uic import loadUi
 
 from db.models import session, DayReport, TicketsmanReport
-from interface.base_admin_interface import BaseAdmin
 from interface.base_user_interface import BaseUser
 
 
@@ -16,6 +15,7 @@ class TicketsmanUi(QMainWindow, BaseUser):
         self.actionlogout.triggered.connect(self.logout)
         self.label_organisation_name.setText(self.get_organisation_name())
         self.label_user_name.setText(self.get_user_name())
+
         self.button_create.clicked.connect(self.add_report)
 
     def add_report(self):

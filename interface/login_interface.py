@@ -81,7 +81,11 @@ class LoginUi(QMainWindow, BaseAdmin):
         if not driver:
             self.show_message("Wrong firstname or lastname!")
         else:
-            pass
+            from interface.driver_interface import DriverUi
+            BaseUser.user = driver
+            ticketsman_page = DriverUi()
+            self.widget.addWidget(ticketsman_page)
+            self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
 
 
